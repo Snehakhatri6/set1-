@@ -1,0 +1,164 @@
+# Question 1: Count total number of negative numbers in an array
+def question1():
+    arr = [-1, 2, -3, 4, -5]
+    count = sum(1 for x in arr if x < 0)
+    print(f"Total number of negative numbers: {count}")
+
+# Question 2: Find max of 5 numbers entered by the user
+def question2():
+    arr = [int(input(f"Enter number {i+1}: ")) for i in range(5)]
+    max_num = max(arr)
+    print(f"Max number: {max_num}")
+
+# Question 3: Merge two sorted arrays into a third sorted array
+def question3():
+    arr1 = [1, 3, 5, 7]
+    arr2 = [2, 4, 6, 8]
+    arr3 = sorted(arr1 + arr2)
+    print("Merged array:", arr3)
+
+# Question 4: Reverse an array of 7 integers
+def question4():
+    arr = [int(input(f"Enter number {i+1}: ")) for i in range(7)]
+    print("Reversed array:", arr[::-1])
+
+# Question 5: Check if an array is a palindrome
+def question5():
+    arr = [int(input(f"Enter number {i+1}: ")) for i in range(5)]
+    if arr == arr[::-1]:
+        print("The array is a palindrome.")
+    else:
+        print("The array is not a palindrome.")
+
+# Question 6: Search for a number in an array and return its index
+def question6():
+    arr = [int(input(f"Enter number {i+1}: ")) for i in range(5)]
+    search_element = int(input("Enter the number to search: "))
+    try:
+        index = arr.index(search_element)
+        print(f"Number found at index: {index}")
+    except ValueError:
+        print("Number not found.")
+
+# Question 7: Print all unique numbers in an array
+def question7():
+    arr = [1, 2, 2, 3, 4, 4, 5]
+    unique_numbers = [x for x in arr if arr.count(x) == 1]
+    print("Unique numbers:", unique_numbers)
+
+# Question 8: Count the frequency of each number in an array
+def question8():
+    arr = [1, 2, 2, 3, 4, 4, 5]
+    frequency = {x: arr.count(x) for x in set(arr)}
+    print("Frequency of numbers:")
+    for num, freq in frequency.items():
+        print(f"{num} occurs {freq} times.")
+
+# Question 9: Count total number of duplicate numbers in an array
+def question9():
+    arr = [1, 2, 2, 3, 4, 4, 5]
+    duplicate_count = sum(1 for x in set(arr) if arr.count(x) > 1)
+    print(f"Total number of duplicate numbers: {duplicate_count}")
+
+# Question 10: Print Parallelogram pattern
+def question10():
+    rows, cols = 5, 5
+    for i in range(rows):
+        print(' ' * i + '*' * cols)
+
+# Question 11: Print Right Triangle pattern
+def question11():
+    rows = 5
+    for i in range(1, rows + 1):
+        print('*' * i)
+
+# Question 12: Print Half Diamond pattern
+def question12():
+    cols = 5
+    for i in range(1, cols + 1):
+        print('*' * i)
+    for i in range(cols - 1, 0, -1):
+        print('*' * i)
+
+# Question 13: Print Diamond pattern
+def question13():
+    rows = 9
+    if rows % 2 == 0:
+        print("Error: Rows must be odd.")
+        return
+    n = rows // 2
+    for i in range(n + 1):
+        print(' ' * (n - i) + '*' * (2 * i + 1))
+    for i in range(n - 1, -1, -1):
+        print(' ' * (n - i) + '*' * (2 * i + 1))
+
+# Question 14: Print alternating number pattern
+def question14():
+    rows, cols = 5, 5
+    for i in range(1, rows + 1):
+        if i % 2 == 1:
+            print(''.join(str(j) for j in range(1, cols + 1)))
+        else:
+            print(''.join(str(j) for j in range(cols, 0, -1)))
+
+# Question 15: Print square border pattern
+def question15():
+    rows, cols = 5, 5
+    for i in range(1, rows + 1):
+        for j in range(1, cols + 1):
+            if i == 1 or i == rows or j == 1 or j == cols:
+                print('1', end='')
+            else:
+                print('0', end='')
+        print()
+
+# Question 16: Print increasing number pattern with repetition
+def question16():
+    rows = 5
+    for i in range(1, rows + 1):
+        for j in range(i, rows + 1):
+            print(j, end='')
+        for j in range(2, i + 1):
+            print(rows, end='')
+        print()
+
+# Main function to test the questions
+def main():
+    choice = int(input("Enter the question number (1-16) to execute the corresponding function: "))
+    if choice == 1:
+        question1()
+    elif choice == 2:
+        question2()
+    elif choice == 3:
+        question3()
+    elif choice == 4:
+        question4()
+    elif choice == 5:
+        question5()
+    elif choice == 6:
+        question6()
+    elif choice == 7:
+        question7()
+    elif choice == 8:
+        question8()
+    elif choice == 9:
+        question9()
+    elif choice == 10:
+        question10()
+    elif choice == 11:
+        question11()
+    elif choice == 12:
+        question12()
+    elif choice == 13:
+        question13()
+    elif choice == 14:
+        question14()
+    elif choice == 15:
+        question15()
+    elif choice == 16:
+        question16()
+    else:
+        print("Invalid question number.")
+
+if __name__ == "__main__":
+    main()
